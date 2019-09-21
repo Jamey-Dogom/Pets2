@@ -10,4 +10,4 @@ require('./server/config/routes')(app);
 
 app.all('*', (req, res) => res.sendFile(__dirname + '/public/dist/public/index.html'));
 
-app.listen(3333, () => console.log('Listening on port 9000...'));
+app.listen(3333, () => console.log('Listening on port 3333...'));
