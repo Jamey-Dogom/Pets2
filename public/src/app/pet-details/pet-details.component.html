@@ -1,0 +1,29 @@
+<br>
+<h3>Details about {{ pet.name }}</h3>
+
+
+<h4>Pet Type: </h4>
+<h5> {{ pet.type }} </h5>
+
+<h4>Pet Description: </h4>
+<h5> {{ pet.description }} </h5>
+
+<h4>Pet Skills: </h4>
+<ul>
+    <li>
+        <h5> {{ pet.skill1 }} </h5>
+    </li>
+    <li>
+        <h5> {{ pet.skill1 }} </h5>
+    </li>
+    <li>
+        <h5> {{ pet.skill1 }} </h5>
+    </li>
+</ul>
+
+<h4>Likes: </h4>
+<h5> {{ pet.likes }} </h5>
+
+<br><br>
+<button (click)="adoptPet(pet._id)" class="btn btn-danger">Adopt</button>
+<button (click)="likePet(pet._id)" [disabled]="liked" class="btn btn-primary">Like</button>

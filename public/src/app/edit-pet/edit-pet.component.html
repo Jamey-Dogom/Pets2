@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col">
+        <br>
+
+        <p *ngFor="let error of errors" style="color: red;"> {{ error }} </p>
+        <p *ngIf="this.flag" style="color: red"> Please enter a unique name, this name is already in use... </p>
+
+        <br>
+
+
+        <form *ngIf="pet !== null">
+            <div class="form-group">
+                <label for="name">Pet Name:</label>
+                <input type="text" name="name" [(ngModel)]="pet.name" class="form-control" id="name">
+            </div>
+
+            <div class="form-group">
+                <label for="type">Pet Type: </label>
+                <input type="text" name="type" [(ngModel)]="pet.type" class="form-control" id="type">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Pet Description</label>
+                <textarea name="description" [(ngModel)]="pet.description" class="form-control" id="description"
+                    rows="3"></textarea>
+            </div>
+            <br>
+            <h4>Skills:</h4>
+            <div class="form-group">
+                <label for="skill1">Skill 1</label>
+                <input type="text" name="skill1" [(ngModel)]="pet.skill1" class="form-control" id="skill1">
+            </div>
+            <div class="form-group">
+                <label for="skill2">Skill 2</label>
+                <input type="text" name="skill2" [(ngModel)]="pet.skill2" class="form-control" id="skill2">
+            </div>
+            <div class="form-group">
+                <label for="skill3">Skill 3</label>
+                <input type="text" name="skill3" [(ngModel)]="pet.skill3" class="form-control" id="skill3">
+            </div>
+
+            <button (click)="editPet()" class="btn btn-primary" style="margin-right: 15px">Add Pet</button>
+            <button (click)="cancelHandler()" class="btn btn-danger">Cancel</button>
+
+        </form>
+    </div>
+    <div class="col"></div>
+
+</div>

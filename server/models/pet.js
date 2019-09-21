@@ -1,39 +1,38 @@
-const mongoose = require('mongoose');
-var uniqueValidator  = require('mongoose-unique-validator');
+require("../config/mongoose");
+const mongoose = require("mongoose");
+// const uniqueValidator = require('mongoose-unique-validator');
 
 const PetSchema = new mongoose.Schema({
     name: {
         type: String,
-        unique: [true, "Unique pet name is required"],
-        required: [true, "Name field is required"],
-        minlength: [3, "Name must be at least 3 characters"],
+        required: [true, "All Pets must have a name"],
+        minlength: [3, "Pet's Name must have at least 3 characters."],
+        unique: [true, 'This name already exist']
     },
     type: {
         type: String,
-        required: [true, "Type cannot be blank"],
-        minlength: [3, "Type must be at least 3 characters"]
+        required: [true, "All Pet's must have a type"],
+        minlength: [3, "The minimum lengfth for a Pet type is 3"]
     },
     description: {
         type: String,
-        required: [true, "Description cannot be blank"],
-        minlength: [3, "Description must be at least 3 characters"]
+        required: [true, "All pet's must have a description"],
+        minlength: [3, "A Description must be more then three characters."]
     },
     skill1: {
-        type: String,
+        type: String
     },
     skill2: {
-        type: String,
+        type: String
     },
     skill3: {
-        type: String,
+        type: String
     },
     likes: {
         type: Number,
         default: 0
     }
-}, {
-    timestamps: true
-});
+}, { timestamps: true, strict: false });
 
-// PetSchema.plugin(uniqueValidator , {message: '{PATH} This pet name exists in our database. Please enter a different name.'});
-const Pet = mongoose.model('Pet', PetSchema);
+// PetSchema.plugin(uniqueValidator, { message: 'All of our pets here have unique names! Please Try a new Name.' });
+Pet = mongoose.model('Pet', PetSchema);

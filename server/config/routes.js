@@ -1,27 +1,13 @@
-const mongoose = require('mongoose')
-    Dog = mongoose.model('Pet')
+const petsController = require('../controllers/petsController');
 
-const pets = require('../controllers/pets')
+module.exports = function (app) {
+    app.get('/api/pets', petsController.getAllPets);
 
-module.exports = function(app) {
+    app.get('/api/pets/:id', petsController.getPet);
 
-// // Get all pets
-app.get('/api/pets', pets.findAll)
+    app.post('/api/pets', petsController.createPet);
 
-// Create a pet
-app.post('/api/pets', pets.create);
+    app.put('/api/pets/:id', petsController.updatePet);
 
-// Find a pet by id
-app.get('/api/pets/:id', pets.findOne);
-
-// Update a pet
-app.put('/api/pets/:id/', pets.edit);
-
-// Delete a pet
-app.delete('/api/pets/:id', pets.delete);
-
-// app.post('/pets/:id/rates', pets.rateCreate);
-
-app.put('/api/pets/:id/like', pets.addLike)
-
+    app.delete('/api/pets/:id', petsController.deletePet);
 }

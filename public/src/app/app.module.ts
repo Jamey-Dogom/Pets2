@@ -1,33 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
+import { HttpService } from "./http.service";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductCreateComponent } from './product-create/product-create.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { HttpService } from './http.service';
-import { HttpClientModule } from '@angular/common/http';
-import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NewPetComponent } from "./new-pet/new-pet.component";
+import { EditPetComponent } from "./edit-pet/edit-pet.component";
+import { PetDetailsComponent } from "./pet-details/pet-details.component";
+import { AllPetsComponent } from "./all-pets/all-pets.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProductListComponent,
-    ProductCreateComponent,
-    ProductEditComponent,
-    PageNotFoundComponentComponent
+    NewPetComponent,
+    EditPetComponent,
+    PetDetailsComponent,
+    AllPetsComponent,
+    PageNotFoundComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [HttpService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

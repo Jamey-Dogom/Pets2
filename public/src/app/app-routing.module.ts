@@ -1,43 +1,42 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponentComponent} from './page-not-found-component/page-not-found-component.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductCreateComponent } from './product-create/product-create.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { AllPetsComponent } from "./all-pets/all-pets.component";
+import { NewPetComponent } from "./new-pet/new-pet.component";
+import { EditPetComponent } from "./edit-pet/edit-pet.component";
+import { PetDetailsComponent } from "./pet-details/pet-details.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
-    path : 'pets',
-    component : ProductListComponent
+    path: "pets/:id/edit",
+    component: EditPetComponent
   },
   {
-    path : 'pets/new',
-    component : ProductCreateComponent
+    path: "pets",
+    component: AllPetsComponent
   },
   {
-    path : 'pets/:id',
-    component : HomeComponent
+    path: "pets/new",
+    component: NewPetComponent
+  },
+  
+  {
+    path: "pets/:id",
+    component: PetDetailsComponent
   },
   {
-    path : 'pets/:id/edit',
-    component : ProductEditComponent
-  },
-  {
-    path : "",
+    path: "",
     pathMatch: "full",
     redirectTo: "/pets"
   },
   {
     path: "**",
-    component: PageNotFoundComponentComponent
+    component: PageNotFoundComponent
   }
- 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

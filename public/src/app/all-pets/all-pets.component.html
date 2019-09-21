@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col">
+
+        <br>
+        <a routerLink="/pets/new">Add a pet to the shelter</a>
+
+        <br><br>
+
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type <button class="btn btn-sm btn-dark">[->]</button> </th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pet of pets">
+                    <td>{{ pet.name }}</td>
+                    <td>{{ pet.type }}</td>
+                    <td>
+                        <button (click)="goToEdit(pet._id)" class="btn btn-sm btn-warning"
+                            style="margin-right: 15px;">Edit</button>
+                        <button (click)="goToDetails(pet._id)" class="btn btn-sm btn-info">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
