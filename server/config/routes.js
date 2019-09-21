@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
     Dog = mongoose.model('Pet')
 
-const pets = require('../../controllers/pets')
+const pets = require('../controllers/pets')
 
 module.exports = function(app) {
 
