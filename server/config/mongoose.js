@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 
-mongoose.connect('mongodb://localhost/pets-fullstack',
+mongoose.connect('mongodb://localhost/pets_db',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
